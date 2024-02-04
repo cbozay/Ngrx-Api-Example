@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <button class="btn btn-primary col-mt-4 w-100" routerLink="/add-product">
+    Add Product
+  </button>
+  <div class="row">
+    <div
+      class="col-md-3 mt-4"
+      *ngFor="let product of products; let index = index"
+    >
+      <div class="card" style="width: 18rem">
+        <img src="{{ product.imageUrl }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">Stock: {{ product.stock }}</p>
+          <p class="card-text">Price: {{ product.unitPrice }}</p>
+          <a class="btn btn-primary" (click)="addBasket(product)">Add Basket</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
