@@ -15,7 +15,7 @@ import { BasketService } from 'src/app/services/basket.service';
 export class HomeComponent implements OnInit {
   products: ProductModel[] = [];
   constructor(
-    // private store: Store<Stores['baskets']>,
+    private store: Store<Stores['baskets']>,
     private _product: ProductService,
     private _basket: BasketService
   ) {
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     basket.product = product;
     basket.quantity = 1;
 
-    // this.store.dispatch(BasketActions.addBasket({ basket }));
+    this.store.dispatch(BasketActions.addBasket({ basket: basket }));
     this._basket.post(basket);
   }
 }
